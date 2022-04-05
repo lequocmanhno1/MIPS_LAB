@@ -1,0 +1,43 @@
+Họ và tên: Lê Quốc Mạnh. MSSV: 20194614
+Assigment 1:
+- Sự thay đổi giá trị của thanh ghi s0 từ 0 -> 12295(hệ 10)
+- Sự thay đổi giá trị của thanh ghi pc tăng lên 4 mỗi khi 1 lệnh được thực hiện
+- Sau khi có lệnh addi $s0, $zero, 0x2110003d thì mã được thực hiện thành 3 lệnh
+	+ lui $1, 0x00002110
+ 	+ ori $1, $1, 0x0000003d
+	+ add $16, $0, $1
+   xảy ra việc này là do số 0x2110003d > 16 bits trong khuôn mẫu lệnh I-type phần (immediate)
+
+Assignment 2:
+- Sự thay đổi giá trị của thanh ghi s0 từ 0 -> 0x21100000
+- Sự thay đổi giá trị của thanh ghi pc tăng lên 4 mỗi khi 1 lệnh được thực hiện
+- Các bytes đầu tiên của dòng lệnh trùng với cột Code của Text Segment
+
+Assignment 3:
+- Lệnh đầu tiên li $s0,0x2110003d được tách ra làm 2 lệnh:
+	+ lui $1, 0x00002110
+ 	+ ori $16, $1, 0x0000003d
+Vì 0x2110003d > 16 bits.
+- Còn lệnh thứ 2: li $s1,0x2 thì thực hiện addiu và insert thẳng vào thanh $s1 vì 0x2 <16 bits
+
+Có sự khác biệt này vì li là pseudo
+
+Assignment 4:
+- Sự thay đổi giá trị của thanh ghi pc tăng lên 4 mỗi khi 1 lệnh được thực hiện
+- Sau lệnh addi $t2, $zero, -1 thì giá trị thanh ghi $t2 là 0xfffffffff 
+- Thanh ghi $s0 có giá trị của kết quả phép tính 
+- Kết thúc chương trình cho kết quả đúng.
+
+Assignment 5:
+- Điều bất thường: ở lệnh mul $s0, $t1, $t2  khi thực hiện thì có thêm lệnh addi
+- Sau khi kết thúc chương trình kết quá đúng
+- Sự thay đổi của thanh ghi Hi: Không thay đổi
+- Sự thay đổi của thanh ghi Lo: ghi các kết quả các giá trị tính toán.
+
+Assignment 6:
+- Lệnh la được biên dịch thành 2 lệnh "lui" và "ori"
+- Địa chỉ của X,Y,Z bằng hằng số khi biên dịch lệnh la bằng mã máy
+- Chức năng của lệnh lw: Đọc 4 bytes từ bộ nhớ đến thanh ghi
+- Chức năng của lệnh sw: store giá trị của 1 thanh ghi vào bộ nhớ
+- Chức năng của lệnh lb:  chuyển 1 byte dữ liệu từ bộ nhớ vào thanh ghi
+- Chức năng của lệnh sb: chuyển lowest byte của dữ liệu từ thanh ghi vào bộ nhớ.
